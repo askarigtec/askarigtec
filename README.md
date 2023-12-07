@@ -2,6 +2,9 @@
 
 [![Instagram](https://img.shields.io/badge/Instagram-f00?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/github.nimaltd/)
 
+[![youtube](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.youtube.com/@nimaltd)
+
+[![email](https://img.shields.io/badge/Instagram-f00?style=for-the-badge&logo=instagram&logoColor=white)](nima.askari@gmail.com)
 
 <!---
 askarigtec/askarigtec is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
