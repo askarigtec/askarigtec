@@ -1,12 +1,62 @@
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/nimaltd)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Server Certificate</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .output {
+      margin-top: 20px;
+      white-space: pre-wrap;
+      background: #f0f0f0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      max-width: 600px;
+    }
+  </style>
+</head>
+<body>
 
-[![Instagram](https://img.shields.io/badge/Instagram-f00?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/github.nimaltd/)
+<h1>Get SSL Certificate Information</h1>
+<p>Enter a server hostname (e.g., google.com) to retrieve its SSL certificate.</p>
 
-[![youtube](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.youtube.com/@nimaltd)
+<form id="certForm">
+  <label for="hostname">Hostname: </label>
+  <input type="text" id="hostname" name="hostname" required>
+  <button type="submit">Get Certificate</button>
+</form>
 
-[![email](https://img.shields.io/badge/Instagram-f00?style=for-the-badge&logo=instagram&logoColor=white)](nima.askari@gmail.com)
+<div id="certificateOutput" class="output"></div>
 
-<!---
-askarigtec/askarigtec is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+<script>
+  document.getElementById('certForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const hostname = document.getElementById('hostname').value;
+    const outputDiv = document.getElementById('certificateOutput');
+    outputDiv.textContent = "Loading...";
+
+    // Replace with your hosted API URL
+    const apiUrl = `https://your-api-app.herokuapp.com/get_certificate?hostname=${hostname}`;
+    
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        if (data.certificate) {
+          outputDiv.textContent = `Certificate for ${hostname}:\n${data.certificate}`;
+        } else {
+          outputDiv.textContent = "Error: " + (data.error || "Unknown error");
+        }
+      })
+      .catch(error => {
+        outputDiv.textContent = "Error: " + error.message;
+      });
+  });
+</script>
+
+</body>
+</html>
